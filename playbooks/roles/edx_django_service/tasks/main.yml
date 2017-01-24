@@ -219,11 +219,24 @@
   args:
     chdir: "{{ edx_django_service_code_dir }}"
   become_user: "{{ edx_django_service_user }}"
-  environment: "{{ edx_django_service_environment }}"
+  # NOTE: We enable Django Debug Toolbar so that devstack containers have the requisite assets.
+  environment: "{{ edx_django_service_environment | combine({ 'ENABLE_DJANGO_TOOLBAR': True }) }}"
   when: edx_django_service_has_static_assets
   tags:
     - assets
     - assets:gather
+
+- name: Allow the web group to write staticfiles for devstack
+  file:
+    path: "{{ COMMON_DATA_DIR }}/{{ edx_django_service_name }}/staticfiles"
+    state: directory
+    owner: "{{ edx_django_service_user }}"
+    group: "{{ common_web_group }}"
+    mode: "0775"
+    recurse: true
+  tags:
+    - devstack
+    - devstack:install
 
 - name: restart the application
   supervisorctl:

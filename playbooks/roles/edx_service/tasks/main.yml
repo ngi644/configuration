@@ -59,7 +59,8 @@
     - ""
     - "venvs"
     - "data"
-    - "staticfiles"
+# TODO Determine if we want to keep static files here or in /edx/var/{service-name}/staticfiles
+#    - "staticfiles"
   tags:
     - install
     - install:base
