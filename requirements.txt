@@ -1,4 +1,5 @@
-https://github.com/edx/ansible.git@stable-1.9.3-rc1-edx#egg=ansible==1.9.3-edx
+# git+https://github.com/edx/ansible.git@stable-1.9.3-rc1-edx#egg=ansible==1.9.3-edx
+ansible==2.2.0.0
 PyYAML==3.11
 Jinja2==2.8
 MarkupSafe==0.23
