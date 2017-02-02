@@ -32,13 +32,13 @@
       - lms
       - forum
       - xqueue
+      - insights
       nginx_default_sites:
       - lms
     - role: nginx
       nginx_sites:
       - ecommerce
       when: SANDBOX_ENABLE_ECOMMERCE
-      - insights
     - role: edxlocal
       when: EDXAPP_MYSQL_HOST == 'localhost'
     - role: memcache
