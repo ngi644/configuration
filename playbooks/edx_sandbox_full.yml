@@ -54,7 +54,6 @@
       when: SANDBOX_ENABLE_ECOMMERCE
     - notifier
     - analytics_api
-    - analytics_pipeline
     - insights
     # not ready yet: - edx_notes_api
     - demo
@@ -66,6 +65,7 @@
     - { role: notifier, NOTIFIER_DIGEST_TASK_INTERVAL: "5" }
     - { role: "xqueue", update_users: True }
     - certs
+    - analytics_pipeline
     - edx_ansible
     - role: datadog
       when: COMMON_ENABLE_DATADOG
