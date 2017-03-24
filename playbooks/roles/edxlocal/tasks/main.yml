@@ -75,3 +75,4 @@
     name: "{{ COMMON_MYSQL_ADMIN_USER }}"
     password: "{{ COMMON_MYSQL_ADMIN_PASS }}"
     priv: "*.*:CREATE USER"
+  when: EDXAPP_MYSQL_HOST == 'localhost'
