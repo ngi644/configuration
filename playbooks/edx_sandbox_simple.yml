@@ -47,7 +47,7 @@
       - ecommerce
       when: SANDBOX_ENABLE_ECOMMERCE
     - role: edxlocal
-      when: EDXAPP_MYSQL_HOST == 'localhost'
+    # when: EDXAPP_MYSQL_HOST == 'localhost'
     - role: memcache
       when: "'localhost' in ' '.join(EDXAPP_MEMCACHE)"
     - role: mongo
