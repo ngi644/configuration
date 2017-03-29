@@ -127,21 +127,21 @@
     - install
     - install:app-requirements
 
-- name: Ensure hdfs services are started
-  service:
-    name: hdfs
-    state: started
-  tags:
-    - manage
-    - manage:start
-
-- name: Ensure map reduce services are started
-  service:
-    name: yarn
-    state: started
-  tags:
-    - manage
-    - manage:start
+#- name: Ensure hdfs services are started
+#  service:
+#    name: hdfs
+#    state: started
+#  tags:
+#    - manage
+#    - manage:start
+#
+#- name: Ensure map reduce services are started
+#  service:
+#    name: yarn
+#    state: started
+#  tags:
+#    - manage
+#    - manage:start
 
 - name: Ensure package dir exists in HDFS
   shell: ". {{ HADOOP_COMMON_CONF_DIR }}/hadoop-env.sh && hdfs dfs -mkdir -p /edx-analytics-pipeline/packages/"
