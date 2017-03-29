@@ -10,9 +10,9 @@
 #
 #
 # Tasks for role hadoop_common
-# 
+#
 # Overview:
-# 
+#
 # This role installs all hadoop services onto the machine. Note that this should
 # be used to configure all machines in a hadoop cluster. It does not perform
 # any role-specific actions such as formatting the namenode etc.
@@ -185,13 +185,13 @@
     LD_LIBRARY_PATH: /usr/local/lib
   when: not native_libs_built.stat.exists
 
-- name: old native libs renamed
-  shell: "mv {{ HADOOP_COMMON_HOME }}/lib/native/{{ item.name }} {{ HADOOP_COMMON_HOME }}/lib/native/{{ item.new_name }}"
-  with_items:
-    - { name: libhadoop.a, new_name: libhadoop32.a }
-    - { name: libhadoop.so, new_name: libhadoop32.so }
-    - { name: libhadoop.so.1.0.0, new_name: libhadoop32.so.1.0.0 }
-  when: not native_libs_built.stat.exists
+#- name: old native libs renamed
+#  shell: "mv {{ HADOOP_COMMON_HOME }}/lib/native/{{ item.name }} {{ HADOOP_COMMON_HOME }}/lib/native/{{ item.new_name }}"
+#  with_items:
+#    - { name: libhadoop.a, new_name: libhadoop32.a }
+#    - { name: libhadoop.so, new_name: libhadoop32.so }
+#    - { name: libhadoop.so.1.0.0, new_name: libhadoop32.so.1.0.0 }
+#  when: not native_libs_built.stat.exists
 
 - name: new native libs installed
   shell: "chown {{ hadoop_common_user }}:{{ hadoop_common_group }} {{ item }} && cp {{ item }} {{ HADOOP_COMMON_HOME }}/lib/native/{{ item }}"
