@@ -63,6 +63,9 @@
       ECOMMERCE_WORKER_BROKER_HOST: 127.0.0.1
       when: SANDBOX_ENABLE_ECOMMERCE
     - programs
+    - role: nginx
+      nginx_sites:
+        - analytics_api
     - analytics_api
     # - insights
     # not ready yet: - edx_notes_api
