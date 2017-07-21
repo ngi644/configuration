@@ -222,6 +222,9 @@
 
 - name: Grant access to table storing test data in output database
   mysql_user:
+    login_host: "{{ ANALYTICS_PIPELINE_OUTPUT_DATABASE.host }}"
+    login_user: "{{ COMMON_MYSQL_ADMIN_USER }}"
+    login_password: "{{ COMMON_MYSQL_ADMIN_PASS }}"
     user: "{{ ANALYTICS_PIPELINE_OUTPUT_DATABASE.username }}"
     password: "{{ ANALYTICS_PIPELINE_OUTPUT_DATABASE.password }}"
     priv: 'acceptance%.*:ALL'
