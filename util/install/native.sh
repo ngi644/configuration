@@ -51,6 +51,9 @@ sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
+## added require modules. @cmscom
+sudo apt-get install -y mariadb-client
+
 ##
 ## Install system pre-requisites
 ##
