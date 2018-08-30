@@ -105,8 +105,7 @@ cd /var/tmp
 git clone https://github.com/cmscom/configuration
 cd configuration
 #git checkout $CONFIGURATION_VERSION
-#git checkout cmscom/ginkgo.master-terada-201808
-git checkout cmscom/${$OPENEDX_RELEASE2}
+git checkout cmscom/ginkgo.master-terada-201808
 git pull
 
 ##
